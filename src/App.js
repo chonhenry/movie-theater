@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
 import SideMenu from "./components/side-menu/side-menu";
+import Backdrop from "./components/backdrop/backdrop";
 import Homepage from "./pages/homepage/homepage";
 import MovieDetail from "./pages/movie-detail/movie-detail";
 import MovieShowtime from "./pages/movie-showtime/movie-showtime";
@@ -13,12 +14,33 @@ import TheaterShowtime from "./pages/theater-showtime/theater-showtime";
 import "./App.css";
 
 class App extends Component {
+  state = {
+    sideMenuOpen: false,
+  };
+
+  toggleClickHandler = () => {
+    this.setState((prevState) => {
+      return { sideMenuOpen: !prevState.sideMenuOpen };
+    });
+  };
+
+  backdropClickHandler = () => {
+    this.setState({ sideMenuOpen: false });
+  };
+
   render() {
+    let backdrop;
+
+    if (this.state.sideMenuOpen) {
+      backdrop = <Backdrop click={this.backdropClickHandler}></Backdrop>;
+    }
+
     return (
       <div className="App ui">
         <BrowserRouter>
-          <Navbar></Navbar>
-          <SideMenu></SideMenu>
+          <Navbar toggleClickHandler={this.toggleClickHandler}></Navbar>
+          <SideMenu show={this.state.sideMenuOpen}></SideMenu>
+          {backdrop}
           <Route path="/" exact component={Homepage}></Route>
           <Route path="/movie:id" exact component={MovieDetail}></Route>
           <Route

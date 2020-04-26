@@ -1,8 +1,55 @@
 .side-menu {
-  background-color: white;
+  background-color: #1d2323;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  width: 400px;
+  width: 70%;
+  max-width: 400px;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+
+  ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+
+    li {
+      margin: 20px 0;
+
+      .link {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+          cursor: pointer;
+          border-bottom: 1px solid white;
+        }
+      }
+    }
+  }
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .navbar-items {
+    display: none;
+  }
+
+  .toogle-btn {
+    margin: 10px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .toogle-btn {
+    display: none;
+  }
 }

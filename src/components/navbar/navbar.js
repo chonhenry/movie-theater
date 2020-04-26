@@ -4,12 +4,12 @@ import ToggleButton from "../toggle-button/toggle-button";
 import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <header className="navbar">
       <nav className="navbar-navigation">
-        <div>
-          <ToggleButton />
+        <div className="toogle-btn">
+          <ToggleButton click={props.toggleClickHandler} />
         </div>
         <div className="navbar-logo">
           <Link to="/" className="logo">

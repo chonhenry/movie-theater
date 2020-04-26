@@ -1,10 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import "./side-menu.scss";
 import { Link } from "react-router-dom";
 
 const SideMenu = (props) => {
+  let sideMenuClasses = "side-menu";
+  if (props.show) {
+    sideMenuClasses = "side-menu open";
+  }
+
   return (
-    <nav className="side-menu">
+    <nav className={sideMenuClasses}>
       <ul>
         <li>
           <Link to="/" className="link">
@@ -23,7 +28,7 @@ const SideMenu = (props) => {
         </li>
         <li>
           <Link to="/location" className="link">
-            Signin
+            SIGNIN
           </Link>
         </li>
       </ul>
