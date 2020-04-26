@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
+import SideMenu from "./components/side-menu/side-menu";
 import Homepage from "./pages/homepage/homepage";
 import MovieDetail from "./pages/movie-detail/movie-detail";
 import MovieShowtime from "./pages/movie-showtime/movie-showtime";
@@ -16,26 +17,25 @@ class App extends Component {
     return (
       <div className="App ui">
         <BrowserRouter>
-          <div>
-            <Navbar></Navbar>
-            <Route path="/" exact component={Homepage}></Route>
-            <Route path="/movie:id" exact component={MovieDetail}></Route>
-            <Route
-              path="/showtime/movie:id"
-              exact
-              component={MovieShowtime}
-            ></Route>
-            <Route path="/payment" exact component={Payment}></Route>
-            <Route path="/seat" exact component={PickSeat}></Route>
-            <Route path="/location" exact component={TheaterLocation}></Route>
-            {/* <Route path="/search" exact component={Search}></Route> */}
-            <Route
-              path="/theatershowtime"
-              exact
-              component={TheaterShowtime}
-            ></Route>
-            <Footer></Footer>
-          </div>
+          <Navbar></Navbar>
+          <SideMenu></SideMenu>
+          <Route path="/" exact component={Homepage}></Route>
+          <Route path="/movie:id" exact component={MovieDetail}></Route>
+          <Route
+            path="/showtime/movie:id"
+            exact
+            component={MovieShowtime}
+          ></Route>
+          <Route path="/payment" exact component={Payment}></Route>
+          <Route path="/seat" exact component={PickSeat}></Route>
+          <Route path="/location" exact component={TheaterLocation}></Route>
+          {/* <Route path="/search" exact component={Search}></Route> */}
+          <Route
+            path="/theatershowtime"
+            exact
+            component={TheaterShowtime}
+          ></Route>
+          <Footer></Footer>
         </BrowserRouter>
       </div>
     );
