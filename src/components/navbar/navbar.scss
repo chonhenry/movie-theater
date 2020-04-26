@@ -1,22 +1,44 @@
-.navbar.ui {
+.nav-wrapper {
   background-color: #1d2323;
-  display: flex;
-  align-items: center;
-  height: 70px;
-  padding: 50px 100px;
 
-  .logo {
-    margin-right: 30px;
-    img {
-      height: 70px;
+  .container {
+    #nav-mobile {
+      li:first-child {
+        .logo {
+          height: 64px;
+          img {
+            height: 45px;
+            width: auto;
+            margin: 10px 0;
+          }
+        }
+      }
+
+      li:nth-child(2) {
+        margin-left: 70px;
+      }
     }
   }
-
-  .link {
-    color: white;
-    padding: 0 30px;
-    font-size: 20px;
-    // font-family: "Raleway", sans-serif;
-    font-family: "Open Sans Condensed", sans-serif;
-  }
 }
+
+// .navbar.ui.menu {
+//     background-color: #1d2323;
+//     display: flex;
+//     align-items: center;
+//     height: 70px;
+//     padding: 50px 100px;
+
+//     .logo {
+//       // margin-right: 30px;
+//       img {
+//         height: 70px;
+//       }
+//     }
+
+//     .link {
+//       color: white;
+//       // padding: 0 30px;
+//       // font-family: "Raleway", sans-serif;
+//       font-family: "Open Sans Condensed", sans-serif;
+//     }
+//   }
