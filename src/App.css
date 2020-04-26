@@ -3,3 +3,7 @@
   box-sizing: border-box;
   height: 100vh;
 }
+
+.container {
+  padding: 0 60px;
+}

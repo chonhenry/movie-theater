@@ -39,16 +39,16 @@
 }
 
 @media (max-width: 768px) {
-  .navbar-items {
-    display: none;
-  }
+  //   .navbar-items {
+  //     display: none;
+  //   }
 
   .toogle-btn {
     margin: 10px 0;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .toogle-btn {
     display: none;
   }

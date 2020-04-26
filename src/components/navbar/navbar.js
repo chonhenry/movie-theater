@@ -7,14 +7,13 @@ import { Link } from "react-router-dom";
 const Navbar = (props) => {
   return (
     <header className="navbar">
-      <nav className="navbar-navigation">
+      <nav className="navbar-navigation container">
         <div className="toogle-btn">
           <ToggleButton click={props.toggleClickHandler} />
         </div>
         <div className="navbar-logo">
           <Link to="/" className="logo">
-            {/* <img src={logo} alt="logo"></img> */}
-            LOGO
+            <img src={logo} alt="logo"></img>
           </Link>
         </div>
         <div className="spacer"></div>
