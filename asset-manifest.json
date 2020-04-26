@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/movie-theater/static/css/main.c8721d24.chunk.css",
+    "main.css": "/movie-theater/static/css/main.89d74888.chunk.css",
     "main.js": "/movie-theater/static/js/main.5d4527e3.chunk.js",
     "main.js.map": "/movie-theater/static/js/main.5d4527e3.chunk.js.map",
     "runtime-main.js": "/movie-theater/static/js/runtime-main.ab28b17e.js",
@@ -8,16 +8,16 @@
     "static/js/2.19ca950d.chunk.js": "/movie-theater/static/js/2.19ca950d.chunk.js",
     "static/js/2.19ca950d.chunk.js.map": "/movie-theater/static/js/2.19ca950d.chunk.js.map",
     "index.html": "/movie-theater/index.html",
-    "precache-manifest.a2d6c6b7cc89d0849fc4f46eb80d5e32.js": "/movie-theater/precache-manifest.a2d6c6b7cc89d0849fc4f46eb80d5e32.js",
+    "precache-manifest.136106e13ad8b45f1c12d0a01f959e0f.js": "/movie-theater/precache-manifest.136106e13ad8b45f1c12d0a01f959e0f.js",
     "service-worker.js": "/movie-theater/service-worker.js",
-    "static/css/main.c8721d24.chunk.css.map": "/movie-theater/static/css/main.c8721d24.chunk.css.map",
+    "static/css/main.89d74888.chunk.css.map": "/movie-theater/static/css/main.89d74888.chunk.css.map",
     "static/js/2.19ca950d.chunk.js.LICENSE.txt": "/movie-theater/static/js/2.19ca950d.chunk.js.LICENSE.txt",
     "static/media/logo.png": "/movie-theater/static/media/logo.605fe1a8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ab28b17e.js",
     "static/js/2.19ca950d.chunk.js",
-    "static/css/main.c8721d24.chunk.css",
+    "static/css/main.89d74888.chunk.css",
     "static/js/main.5d4527e3.chunk.js"
   ]
 }
