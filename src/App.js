@@ -14,7 +14,7 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <div className="App ui container">
+      <div className="App ui">
         <BrowserRouter>
           <div>
             <Navbar></Navbar>
@@ -28,6 +28,7 @@ class App extends Component {
             <Route path="/payment" exact component={Payment}></Route>
             <Route path="/seat" exact component={PickSeat}></Route>
             <Route path="/location" exact component={TheaterLocation}></Route>
+            {/* <Route path="/search" exact component={Search}></Route> */}
             <Route
               path="/theatershowtime"
               exact

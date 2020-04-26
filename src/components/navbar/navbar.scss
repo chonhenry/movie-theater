@@ -1,0 +1,22 @@
+.navbar.ui {
+  background-color: #1d2323;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 50px 100px;
+
+  .logo {
+    margin-right: 30px;
+    img {
+      height: 70px;
+    }
+  }
+
+  .link {
+    color: white;
+    padding: 0 30px;
+    font-size: 20px;
+    // font-family: "Raleway", sans-serif;
+    font-family: "Open Sans Condensed", sans-serif;
+  }
+}

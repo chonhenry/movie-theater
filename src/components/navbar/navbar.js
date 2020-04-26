@@ -1,28 +1,23 @@
 import React, { Component } from "react";
+import "./navbar.scss";
 import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="ui secondary menu">
-      <Link to="/" className="item logo">
+    <div className="navbar ui menu">
+      <Link to="/" className="logo">
         <img src={logo} alt="logo"></img>
       </Link>
-      <Link to="/" className="item">
-        Home
+      <Link to="/" className="link">
+        HOME
       </Link>
-      <Link to="/location" className="item">
-        Theaters
+      <Link to="/location" className="link">
+        THEATERS
       </Link>
-      <div className="right menu">
-        <div className="item">
-          <div className="ui icon input">
-            <input type="text" placeholder="Search..." />
-            <i className="search link icon"></i>
-          </div>
-        </div>
-        <a className="ui item">Logout</a>
-      </div>
+      <Link to="/location" className="link">
+        SEARCH
+      </Link>
     </div>
   );
 };
