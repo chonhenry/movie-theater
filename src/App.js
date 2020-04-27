@@ -14,9 +14,24 @@ import TheaterShowtime from "./pages/theater-showtime/theater-showtime";
 import "./App.css";
 
 class App extends Component {
+  api_key = "c3cea5dfe524b09cb4548284a077e8f0";
+
   state = {
     sideMenuOpen: false,
+    upcomingMovie: [],
   };
+
+  componentDidMount() {
+    fetch(
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${this.api_key}&language=en-US&page=1`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ upcomingMovie: data.results }, () =>
+          console.log(this.state.upcomingMovie)
+        );
+      });
+  }
 
   toggleClickHandler = () => {
     this.setState((prevState) => {

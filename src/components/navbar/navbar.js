@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./navbar.scss";
 import ToggleButton from "../toggle-button/toggle-button";
 import logo from "../../assets/images/logo.png";
@@ -30,13 +30,13 @@ const Navbar = (props) => {
               </Link>
             </li>
             <li>
-              <Link to="/location" className="link">
+              <Link to="/" className="link">
                 SEARCH
               </Link>
             </li>
             <li>
-              <Link to="/location" className="link">
-                Signin
+              <Link to="/" className="link">
+                SIGNIN
               </Link>
             </li>
           </ul>
