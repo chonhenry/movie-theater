@@ -1,7 +1,14 @@
 import React, { Component } from "react";
+import "./footer.scss";
 
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <footer>
+      <div className="footer">
+        All rights reserved Movie Theater + 2020 &copy;
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
