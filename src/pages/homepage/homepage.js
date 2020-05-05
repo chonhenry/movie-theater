@@ -22,12 +22,12 @@ class Homepage extends React.Component {
         </BoxContainer>
         <h1>Now Playing</h1>
         <BoxContainer>
-          <Box linkTo="/">Upcoming</Box>
-          <Box linkTo="/">Upcoming</Box>
+          <Box linkTo="/">Movie 1</Box>
+          <Box linkTo="/">Movie 2</Box>
+          <Box linkTo="/">Movie 3</Box>
+          <Box linkTo="/">Movie 4</Box>
+          <MovieItem>Movie Title</MovieItem>
         </BoxContainer>
-        <MovieItem movieItem={this.props.movieItem}>
-          {this.props.movieItem}
-        </MovieItem>
       </div>
     );
   }
