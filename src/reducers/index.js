@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
+import nowPLayingReducer from "./nowPlayingReducer";
 
 export default combineReducers({
-  replaceMe: () => 9999,
+  nowPlayer: nowPLayingReducer,
 });

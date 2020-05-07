@@ -5,4 +5,12 @@
   h1 {
     font-family: "Roboto Mono", monospace;
   }
+
+  .top-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    //justify-content: space-between;
+  }
 }

@@ -18,7 +18,7 @@ class App extends Component {
 
   state = {
     sideMenuOpen: false,
-    upcomingMovie: [],
+    // upcomingMovie: [],
   };
 
   componentDidMount() {

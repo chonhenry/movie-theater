@@ -1,5 +1,5 @@
 import React from "react";
-import BoxContainer from "../../components/box-container/box-container";
+import MovieList from "../../components/movie-list/movie-list";
 import Box from "../../components/box/box";
 import MovieItem from "../../components/movie-item/movie-item";
 import { connect } from "react-redux";
@@ -11,26 +11,31 @@ class Homepage extends React.Component {
     this.props.fetchNowPlayingMovie();
   }
 
+  renderNowPlaying() {
+    return this.props.nowPlayer.map((movie) => {
+      return <MovieItem movie={movie} key={movie.id} />;
+    });
+  }
+
   render() {
+    // console.log(this.props.nowPlayer);
     return (
       <div className="homepage container">
-        <BoxContainer>
+        <div className="top-menu">
           <Box linkTo="/">Latest</Box>
           <Box linkTo="/">Now Playing</Box>
           <Box linkTo="/">Top Rated</Box>
           <Box linkTo="/">Upcoming</Box>
-        </BoxContainer>
+        </div>
         <h1>Now Playing</h1>
-        <BoxContainer>
-          <Box linkTo="/">Movie 1</Box>
-          <Box linkTo="/">Movie 2</Box>
-          <Box linkTo="/">Movie 3</Box>
-          <Box linkTo="/">Movie 4</Box>
-          <MovieItem>Movie Title</MovieItem>
-        </BoxContainer>
+        <MovieList>{this.renderNowPlaying()}</MovieList>
       </div>
     );
   }
 }
 
-export default connect(null, { fetchNowPlayingMovie })(Homepage);
+const mapStateToProps = (state) => {
+  return { nowPlayer: state.nowPlayer.slice(0, 5) };
+};
+
+export default connect(mapStateToProps, { fetchNowPlayingMovie })(Homepage);
