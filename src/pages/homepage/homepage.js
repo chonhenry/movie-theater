@@ -3,13 +3,21 @@ import MovieList from "../../components/movie-list/movie-list";
 import Box from "../../components/box/box";
 import MovieItem from "../../components/movie-item/movie-item";
 import { connect } from "react-redux";
-import { fetchNowPlayingMovie, fetchUpcomingMovie } from "../../actions/index";
+import {
+  fetchNowPlayingMovie,
+  fetchUpcomingMovie,
+  fetchMovieNews,
+} from "../../actions/index";
 import "./homepage.scss";
 
 class Homepage extends React.Component {
+  tmdb_api_key = "c3cea5dfe524b09cb4548284a077e8f0";
+  news_api_ksy = "ca3b66ada4d24ab385fd3de0f0ccfbcd";
+
   componentDidMount() {
-    this.props.fetchNowPlayingMovie();
-    this.props.fetchUpcomingMovie();
+    this.props.fetchNowPlayingMovie(this.tmdb_api_key);
+    this.props.fetchUpcomingMovie(this.tmdb_api_key);
+    this.props.fetchMovieNews(this.news_api_ksy);
   }
 
   renderNowPlaying() {
@@ -25,7 +33,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    // console.log(this.props.nowPlaying);
+    console.log(this.props.news);
     return (
       <div className="homepage container">
         <div className="top-menu">
@@ -34,10 +42,14 @@ class Homepage extends React.Component {
           <Box linkTo="/">Top Rated</Box>
           <Box linkTo="/">Upcoming</Box>
         </div>
+        <h1>Latest</h1>
+        {/* <MovieList>{this.renderNowPlaying()}</MovieList> */}
         <h1>Now Playing</h1>
         <MovieList>{this.renderNowPlaying()}</MovieList>
         <h1>Upcoming</h1>
         <MovieList>{this.renderUpcoming()}</MovieList>
+        <h1>Movie News</h1>
+        <p>Powered by News API</p>
       </div>
     );
   }
@@ -47,10 +59,12 @@ const mapStateToProps = (state) => {
   return {
     nowPlaying: state.nowPlaying.slice(0, 5),
     upcoming: state.upcoming.slice(0, 5),
+    news: state.news,
   };
 };
 
 export default connect(mapStateToProps, {
   fetchNowPlayingMovie,
   fetchUpcomingMovie,
+  fetchMovieNews,
 })(Homepage);
