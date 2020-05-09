@@ -2,6 +2,7 @@ import React from "react";
 import MovieList from "../../components/movie-list/movie-list";
 import Box from "../../components/box/box";
 import MovieItem from "../../components/movie-item/movie-item";
+import NewsItem from "../../components/news-item/news-item";
 import { connect } from "react-redux";
 import {
   fetchNowPlayingMovie,
@@ -33,7 +34,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    console.log(this.props.news);
+    console.log(this.props.news[0]);
     return (
       <div className="homepage container">
         <div className="top-menu">
@@ -50,6 +51,9 @@ class Homepage extends React.Component {
         <MovieList>{this.renderUpcoming()}</MovieList>
         <h1>Movie News</h1>
         <p>Powered by News API</p>
+        <div className="news-container">
+          <NewsItem></NewsItem>
+        </div>
       </div>
     );
   }
