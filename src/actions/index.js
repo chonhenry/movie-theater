@@ -33,6 +33,7 @@ export const fetchMovieNews = (api_key) => {
   };
 };
 
+// fetch single movie
 export const fetchMovieDetail = (movie_id) => {
   return async (dispatch) => {
     let fetch_movie = await fetch(

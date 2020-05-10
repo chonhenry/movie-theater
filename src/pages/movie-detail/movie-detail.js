@@ -14,15 +14,21 @@ class MovieDetail extends React.Component {
         <div
           className="banner"
           style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/w780${this.props.movieDetail.backdrop_path})`,
+            backgroundImage: `url(https://image.tmdb.org/t/p/w780${this.props.banner})`,
           }}
         >
           <div className="background-cover"></div>
           <div className="movie-info-container">
             <img
-              src={`https://image.tmdb.org/t/p/w780${this.props.movieDetail.poster_path}`}
+              className="movie-poster"
+              src={`https://image.tmdb.org/t/p/w780${this.props.poster}`}
             ></img>
-            {this.props.movieDetail.title}
+            <div className="movie-info">
+              <div className="movie-title">
+                <strong>{this.props.title}</strong>
+              </div>
+              <div className="date-genre-length">{`${this.props.release_date} • ${this.props.runtime}`}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -31,8 +37,20 @@ class MovieDetail extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  let hr = Math.floor(state.movieDetail.runtime / 60);
+  let min =
+    state.movieDetail.runtime - Math.floor(state.movieDetail.runtime / 60) * 60;
+  let genres = state.movieDetail.genres;
+  // let genres_arr = genres.map((g) => g.name);
+  console.log(genres);
+
   return {
     movieDetail: state.movieDetail,
+    banner: state.movieDetail.backdrop_path,
+    poster: state.movieDetail.poster_path,
+    title: state.movieDetail.title,
+    release_date: state.movieDetail.release_date,
+    runtime: `${hr}h ${min}m`,
   };
 };
 
