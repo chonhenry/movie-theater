@@ -25,7 +25,7 @@ export const fetchUpcomingMovie = (api_key) => {
 export const fetchMovieNews = (api_key) => {
   return async (dispatch) => {
     let fetch_news = await fetch(
-      `http://newsapi.org/v2/everything?q=movie-actor-actress-celebrity&sortBy=popularity&apiKey=${api_key}`
+      `http://newsapi.org/v2/everything?q=hollywood-movies-oscar-actor-actress&sortBy=popularity&apiKey=${api_key}`
     );
     fetch_news = await fetch_news.json();
     fetch_news = await fetch_news.articles;

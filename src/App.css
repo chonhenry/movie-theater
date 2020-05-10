@@ -9,3 +9,10 @@
 .container {
   padding: 0 60px;
 }
+
+/* 1905 */
+@media (min-width: 1900px) {
+  .container {
+    padding: 0 150px;
+  }
+}

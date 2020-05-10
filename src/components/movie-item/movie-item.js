@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./movie-item.scss";
 
 const MovieItem = ({ movie }) => {
+  // console.log(movie.poster_path);
   // movie ? console.log(movie.title) : console.log("loading");
   return (
     <div className="ui card movie">

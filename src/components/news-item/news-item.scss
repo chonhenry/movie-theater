@@ -1,0 +1,43 @@
+.news {
+  //   border: 1px solid red;
+  display: flex;
+  height: 170px;
+  text-decoration: none;
+
+  .news-img {
+    width: 30%;
+    height: auto;
+    background: lightblue;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .news-info {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    font-family: "Roboto Mono", monospace;
+
+    .news-title {
+      //   margin: 10px 0 0 15px;
+      margin: 0 0 0 15px;
+      color: white;
+      font-size: 20px;
+      background-image: url();
+    }
+
+    .publish-date {
+      margin: 10px 0 10px 15px;
+      color: gray;
+    }
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    flex-direction: column;
+  }
+}
