@@ -53,12 +53,11 @@ class Homepage extends React.Component {
         <MovieList>{this.renderNowPlaying()}</MovieList>
         <h1>Upcoming</h1>
         <MovieList>{this.renderUpcoming()}</MovieList>
-        <h1>Upcoming</h1>
         <h1>Movie News</h1>
         <div className="news-container">{this.rednerNews()}</div>
         <p>
           Powered by{" "}
-          <a className='news-api' href="https://newsapi.org/" target="_blank">
+          <a className="news-api" href="https://newsapi.org/" target="_blank">
             News API
           </a>
         </p>

@@ -4,6 +4,7 @@
 
   h1 {
     font-family: "Roboto Mono", monospace;
+    margin-top: 60px;
   }
 
   .top-menu {
@@ -16,12 +17,23 @@
 
   .news-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
     grid-column-gap: 30px;
     grid-row-gap: 30px;
   }
 
   .news-api {
     color: white;
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      text-align: center;
+    }
+
+    .news-container {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
