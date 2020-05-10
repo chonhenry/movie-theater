@@ -30,21 +30,19 @@ class MovieItem extends React.Component {
     return (
       <div
         className="ui card movie"
-        onClick={() => {
-          this.props.selectMovie(this.props.movie);
-        }}
+        // onClick={() => {
+        //   this.props.selectMovie(this.props.movie);
+        // }}
       >
         <Link className="poster-link" to={`movie:${this.props.movie.id}`}>
           <img
-            src={`https://image.tmdb.org/t/p/w780/${this.props.movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w780${this.props.movie.poster_path}`}
           />
         </Link>
 
         <Link className="movie-title" to={`movie:${this.props.movie.id}`}>
           {this.props.movie.title}
         </Link>
-
-        <p>movie</p>
       </div>
     );
   }

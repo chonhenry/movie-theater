@@ -33,6 +33,17 @@ export const fetchMovieNews = (api_key) => {
   };
 };
 
+export const fetchMovieDetail = (movie_id) => {
+  return async (dispatch) => {
+    let fetch_movie = await fetch(
+      `https://api.themoviedb.org/3/movie/${movie_id}?api_key=c3cea5dfe524b09cb4548284a077e8f0`
+    );
+    fetch_movie = await fetch_movie.json();
+    // fetch_movie = await fetch_movie.results;
+    dispatch({ type: "Fetch_Movie_Detail", payload: fetch_movie });
+  };
+};
+
 export const selectMovie = (movie) => {
   return {
     type: "MOVIE_SELECTED",
