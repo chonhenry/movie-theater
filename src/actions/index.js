@@ -32,3 +32,10 @@ export const fetchMovieNews = (api_key) => {
     dispatch({ type: "Fetch_News", payload: fetch_news });
   };
 };
+
+export const selectMovie = (movie) => {
+  return {
+    type: "MOVIE_SELECTED",
+    payload: movie,
+  };
+};

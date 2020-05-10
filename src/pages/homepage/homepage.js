@@ -23,7 +23,13 @@ class Homepage extends React.Component {
 
   renderNowPlaying = () => {
     return this.props.nowPlaying.map((movie) => {
-      return <MovieItem movie={movie} key={movie.id} />;
+      return (
+        <MovieItem
+          movie={movie}
+          key={movie.id}
+          // onClick={() => console.log(1111)}
+        />
+      );
     });
   };
 
@@ -40,7 +46,6 @@ class Homepage extends React.Component {
   };
 
   render() {
-    // console.log(this.props.news[0].author);
     return (
       <div className="homepage container">
         <div className="top-menu">
