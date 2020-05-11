@@ -1,6 +1,6 @@
 .movie {
   width: 100%;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid black;
   transition: 0.5s all;
 
   .poster-link {
@@ -15,7 +15,7 @@
 
   .movie-title {
     width: 100%;
-    color: white;
+    color: black;
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -24,6 +24,6 @@
   }
 
   &:hover {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid lightgray;
   }
 }

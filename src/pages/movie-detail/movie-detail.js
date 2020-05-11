@@ -74,6 +74,7 @@ class MovieDetail extends React.Component {
             </div>
           </div>
         </div>
+        <div className="casts-container">Casts</div>
       </div>
     );
   }
