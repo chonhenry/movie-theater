@@ -4,6 +4,7 @@ import upcomingReducer from "./upcomingReducer";
 import newsReducer from "./movieNewsReducer";
 import selectedMovieReducer from "./selectedMovieReducer";
 import movieDetailReducer from "./movieDetailReducer";
+import crewsCastsReducer from "./crewsCastsReducer";
 
 export default combineReducers({
   nowPlaying: nowPLayingReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   news: newsReducer,
   selectedMovie: selectedMovieReducer,
   movieDetail: movieDetailReducer,
+  crewsCasts: crewsCastsReducer,
 });

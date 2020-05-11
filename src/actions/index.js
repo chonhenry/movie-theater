@@ -40,7 +40,6 @@ export const fetchMovieDetail = (movie_id) => {
       `https://api.themoviedb.org/3/movie/${movie_id}?api_key=c3cea5dfe524b09cb4548284a077e8f0`
     );
     fetch_movie = await fetch_movie.json();
-    // fetch_movie = await fetch_movie.results;
     dispatch({ type: "Fetch_Movie_Detail", payload: fetch_movie });
   };
 };
@@ -49,5 +48,16 @@ export const selectMovie = (movie) => {
   return {
     type: "MOVIE_SELECTED",
     payload: movie,
+  };
+};
+
+// fetch cast and crew
+export const fetchCrewsCasts = (movie_id) => {
+  return async (dispatch) => {
+    let fetch_crews_casts = await fetch(
+      `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=c3cea5dfe524b09cb4548284a077e8f0`
+    );
+    fetch_crews_casts = await fetch_crews_casts.json();
+    dispatch({ type: "Fetch_Crews_Casts", payload: fetch_crews_casts });
   };
 };
