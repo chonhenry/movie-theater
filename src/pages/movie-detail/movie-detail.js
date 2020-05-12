@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchMovieDetail, fetchCrewsCasts } from "../../actions/index";
 import "./movie-detail.scss";
 import Slider from "../../components/slider/slider";
@@ -47,6 +48,10 @@ class MovieDetail extends React.Component {
               <div className="movie-title">
                 <strong>{this.props.title}</strong>
               </div>
+
+              <Link className="ticket-link" to="/">
+                Buy Tickets
+              </Link>
 
               <div className="date-genre-length">{`${this.formatDate(
                 this.props.release_date

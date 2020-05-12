@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import "./actor-card.scss";
 
 class ActorCard extends React.Component {
@@ -15,6 +14,7 @@ class ActorCard extends React.Component {
           src={this.profile_path}
           alt="profile-pic"
         />
+
         <div className="name">
           <strong>{this.name}</strong>
         </div>
