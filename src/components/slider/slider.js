@@ -22,12 +22,6 @@ class Slider extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  // var casts;
-
-  // if (state.crewsCasts.cast) {
-  //   casts = state.crewsCasts.cast.map((c) => c);
-  // }
-
   return {
     casts: state.crewsCasts.cast,
   };

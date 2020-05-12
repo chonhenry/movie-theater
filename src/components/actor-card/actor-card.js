@@ -18,6 +18,7 @@ class ActorCard extends React.Component {
         <div className="name">
           <strong>{this.name}</strong>
         </div>
+
         <div className="character">{this.character}</div>
       </div>
     );
