@@ -29,6 +29,8 @@ class MovieDetail extends React.Component {
     return `${hr}h ${min}m`;
   };
 
+  renderCasts = () => {};
+
   render() {
     return (
       <div className="movie-detail">

@@ -9,12 +9,19 @@ class ActorCard extends React.Component {
   render() {
     return (
       <div className="actor-card">
-        <img
-          className="profile-pic"
-          src={this.profile_path}
-          alt="profile-pic"
-        />
-
+        {this.props.cast.profile_path !== null ? (
+          <img
+            className="profile-pic"
+            src={this.profile_path}
+            alt="profile-pic"
+          />
+        ) : (
+          <img
+            className="no-profile-pic"
+            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+            alt="profile-pic"
+          />
+        )}
         <div className="name">
           <strong>{this.name}</strong>
         </div>
