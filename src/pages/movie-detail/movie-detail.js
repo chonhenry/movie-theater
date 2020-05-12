@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { fetchMovieDetail, fetchCrewsCasts } from "../../actions/index";
 import "./movie-detail.scss";
 import Slider from "../../components/slider/slider";
-import ActorCard from "../../components/actor-card/actor-card";
 
 class MovieDetail extends React.Component {
   componentDidMount = () => {
@@ -80,7 +79,6 @@ class MovieDetail extends React.Component {
           <div className="casts">
             <strong>Casts</strong>
             <Slider />
-            <ActorCard></ActorCard>
           </div>
         </div>
       </div>
