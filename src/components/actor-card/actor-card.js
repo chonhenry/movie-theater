@@ -22,9 +22,7 @@ class ActorCard extends React.Component {
             alt="profile-pic"
           />
         )}
-        <div className="name">
-          <strong>{this.name}</strong>
-        </div>
+        <div className="name">{this.name}</div>
 
         <div className="character">{this.character}</div>
       </div>

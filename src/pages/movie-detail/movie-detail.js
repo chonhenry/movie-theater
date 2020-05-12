@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { fetchMovieDetail, fetchCrewsCasts } from "../../actions/index";
 import "./movie-detail.scss";
 import Slider from "../../components/slider/slider";
+import ActorCard from "../../components/actor-card/actor-card";
 
 class MovieDetail extends React.Component {
   componentDidMount = () => {
@@ -29,7 +30,19 @@ class MovieDetail extends React.Component {
     return `${hr}h ${min}m`;
   };
 
-  renderCasts = () => {};
+  renderCasts = () => {
+    let casts_arr = this.props.casts
+      .slice(0, 10)
+      .map((c) => <ActorCard cast={c} key={c.id} />);
+
+    casts_arr.push(
+      <Link to="" className="more-actor">
+        <strong>View More</strong>
+      </Link>
+    );
+
+    return casts_arr;
+  };
 
   render() {
     return (
@@ -85,7 +98,7 @@ class MovieDetail extends React.Component {
         <div className="casts-container">
           <div className="casts">
             <strong>Casts</strong>
-            <Slider />
+            <Slider>{this.props.casts ? this.renderCasts() : null}</Slider>
           </div>
         </div>
       </div>
@@ -120,7 +133,7 @@ const mapStateToProps = (state) => {
     genres: genres,
     runtime: state.movieDetail.runtime,
     director: director,
-    casts: state.crewsCasts.casts,
+    casts: state.crewsCasts.cast,
   };
 };
 
