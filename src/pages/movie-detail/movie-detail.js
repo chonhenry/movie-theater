@@ -95,10 +95,19 @@ class MovieDetail extends React.Component {
             </div>
           </div>
         </div>
+
         <div className="casts-container">
           <div className="casts">
-            <strong>Casts</strong>
+            Casts
             <Slider>{this.props.casts ? this.renderCasts() : null}</Slider>
+          </div>
+        </div>
+
+        <div className="review-container">
+          <div className="review">Review</div>
+          <div className="review-box">
+            <div className="review-author">Author</div>
+            <div className="review-paragraph">svbksjbvsbvd</div>
           </div>
         </div>
       </div>
