@@ -5,6 +5,7 @@
   // margin-top: 30px;
   margin: auto;
   font-family: "Source Sans Pro", sans-serif;
+  overflow-x: hidden;
 
   .banner {
     color: white;
@@ -102,18 +103,29 @@
     }
   }
 
-  .casts-container {
-    // border: red 1px solid;
+  .section-title {
     width: 100%;
     max-width: 1300px;
     margin: auto;
-    padding-top: 20px;
+    padding-top: 30px;
     font-weight: 900;
 
-    .casts {
+    .title {
       margin: 0 30px;
       font-size: 25px;
-      // font-family: "Poppins", sans-serif;
+    }
+  }
+
+  .casts-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    // padding-top: 20px;
+    font-weight: 900;
+
+    .casts-list {
+      margin: 0 30px;
+      font-size: 25px;
     }
   }
 
@@ -122,16 +134,33 @@
     width: 100%;
     max-width: 1300px;
     margin: auto;
-    padding-top: 20px;
+    padding-top: 10px;
 
     .review {
       margin: 0 30px;
       font-size: 25px;
-      font-weight: 900;
-    }
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      grid-column-gap: 10px;
+      grid-row-gap: 30px;
 
-    .review-box {
-      margin: 0 30px;
+      .review-box {
+        border: lightgray 1px solid;
+        border-radius: 5px;
+
+        .review-author {
+          color: gray;
+          font-size: 16px;
+
+          .author-name {
+            color: black;
+            font-weight: 700;
+          }
+        }
+
+        .review-paragraph {
+        }
+      }
     }
   }
 }

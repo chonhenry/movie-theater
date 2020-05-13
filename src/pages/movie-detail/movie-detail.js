@@ -96,18 +96,46 @@ class MovieDetail extends React.Component {
           </div>
         </div>
 
+        <div className="section-title">
+          <div className="title">Casts</div>
+        </div>
+
         <div className="casts-container">
-          <div className="casts">
-            Casts
+          <div className="casts-list">
             <Slider>{this.props.casts ? this.renderCasts() : null}</Slider>
           </div>
         </div>
 
+        <div className="section-title">
+          <div className="title">Review</div>
+        </div>
+
         <div className="review-container">
-          <div className="review">Review</div>
-          <div className="review-box">
-            <div className="review-author">Author</div>
-            <div className="review-paragraph">svbksjbvsbvd</div>
+          <div className="review">
+            <div className="review-box">
+              <div className="review-author">
+                Written By <span className="author-name">dfbdfbf</span>
+              </div>
+              <div className="review-paragraph">svbksjbvsbvd</div>
+            </div>
+            <div className="review-box">
+              <div className="review-author">
+                Written By<span className="author-name"></span>
+              </div>
+              <div className="review-paragraph">svbksjbvsbvd</div>
+            </div>
+            <div className="review-box">
+              <div className="review-author">
+                Written By<span className="author-name"></span>
+              </div>
+              <div className="review-paragraph">svbksjbvsbvd</div>
+            </div>
+            <div className="review-box">
+              <div className="review-author">
+                Written By<span className="author-name"></span>
+              </div>
+              <div className="review-paragraph">svbksjbvsbvd</div>
+            </div>
           </div>
         </div>
       </div>
