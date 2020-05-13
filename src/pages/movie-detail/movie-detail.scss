@@ -116,14 +116,16 @@
     }
   }
 
-  .casts-container {
+  .casts-container,
+  .recommendations-container {
     width: 100%;
     max-width: 1300px;
     margin: auto;
     // padding-top: 20px;
     font-weight: 900;
 
-    .casts-list {
+    .casts-list,
+    .recommendations-list {
       margin: 0 30px;
       font-size: 25px;
     }

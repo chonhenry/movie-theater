@@ -57,6 +57,8 @@ class MovieDetail extends React.Component {
     return casts_arr;
   };
 
+  renderRecommendations = () => {};
+
   renderReview = () => {
     return this.props.moviewReview.map((r) => {
       return (
@@ -123,9 +125,17 @@ class MovieDetail extends React.Component {
         </div>
 
         <div className="section-title">
-          <div className="title">Casts</div>
+          <div className="title">You Might Also Like</div>
+        </div>
+        <div className="recommendations-container">
+          <div className="recommendations-list">
+            <Slider>{this.props.casts ? this.renderCasts() : null}</Slider>
+          </div>
         </div>
 
+        <div className="section-title">
+          <div className="title">Casts</div>
+        </div>
         <div className="casts-container">
           <div className="casts-list">
             <Slider>{this.props.casts ? this.renderCasts() : null}</Slider>
@@ -135,7 +145,6 @@ class MovieDetail extends React.Component {
         <div className="section-title">
           <div className="title">Review</div>
         </div>
-
         <div className="review-container">
           <div className="review">{this.renderReview()}</div>
         </div>
