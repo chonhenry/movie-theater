@@ -1,15 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchMovieDetail, fetchCrewsCasts } from "../../actions/index";
+import {
+  fetchMovieDetail,
+  fetchCrewsCasts,
+  fetchMovieReview,
+} from "../../actions/index";
 import "./movie-detail.scss";
 import Slider from "../../components/slider/slider";
 import ActorCard from "../../components/actor-card/actor-card";
 
 class MovieDetail extends React.Component {
-  componentDidMount = () => {
+  review = [];
+  componentDidMount = async () => {
     this.props.fetchMovieDetail(window.location.pathname.slice(7));
     this.props.fetchCrewsCasts(window.location.pathname.slice(7));
+    this.props.fetchMovieReview(window.location.pathname.slice(7));
+
+    this.review = await fetch(
+      "https://api.themoviedb.org/3/movie/299536/reviews?api_key=c3cea5dfe524b09cb4548284a077e8f0&language=en-US&page=1"
+    );
+    this.review = await this.review.json();
+    this.review = this.review.results;
   };
 
   formatDate = (date) => {
@@ -36,12 +48,26 @@ class MovieDetail extends React.Component {
       .map((c) => <ActorCard cast={c} key={c.id} />);
 
     casts_arr.push(
-      <Link to="" className="more-actor">
+      <Link to="" className="more-actor" key="view-more">
         <strong>View More</strong>
       </Link>
     );
 
+    // console.log(this.props.moviewReview);
     return casts_arr;
+  };
+
+  renderReview = () => {
+    return this.props.moviewReview.map((r) => {
+      return (
+        <div className="review-box" key={r.id}>
+          <div className="review-author">
+            Written By <span className="author-name">{r.author}</span>
+          </div>
+          <div className="review-paragraph">{r.content}</div>
+        </div>
+      );
+    });
   };
 
   render() {
@@ -111,32 +137,12 @@ class MovieDetail extends React.Component {
         </div>
 
         <div className="review-container">
-          <div className="review">
-            <div className="review-box">
-              <div className="review-author">
-                Written By <span className="author-name">dfbdfbf</span>
-              </div>
-              <div className="review-paragraph">svbksjbvsbvd</div>
-            </div>
-            <div className="review-box">
-              <div className="review-author">
-                Written By<span className="author-name"></span>
-              </div>
-              <div className="review-paragraph">svbksjbvsbvd</div>
-            </div>
-            <div className="review-box">
-              <div className="review-author">
-                Written By<span className="author-name"></span>
-              </div>
-              <div className="review-paragraph">svbksjbvsbvd</div>
-            </div>
-            <div className="review-box">
-              <div className="review-author">
-                Written By<span className="author-name"></span>
-              </div>
-              <div className="review-paragraph">svbksjbvsbvd</div>
-            </div>
-          </div>
+          <div className="review">{this.renderReview()}</div>
+        </div>
+        <div className="more-reviews">
+          <Link to="#" className="title">
+            More Reviews
+          </Link>
         </div>
       </div>
     );
@@ -171,9 +177,12 @@ const mapStateToProps = (state) => {
     runtime: state.movieDetail.runtime,
     director: director,
     casts: state.crewsCasts.cast,
+    moviewReview: state.moviewReview.slice(0, 4),
   };
 };
 
-export default connect(mapStateToProps, { fetchMovieDetail, fetchCrewsCasts })(
-  MovieDetail
-);
+export default connect(mapStateToProps, {
+  fetchMovieDetail,
+  fetchCrewsCasts,
+  fetchMovieReview,
+})(MovieDetail);

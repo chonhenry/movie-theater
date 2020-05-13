@@ -61,3 +61,15 @@ export const fetchCrewsCasts = (movie_id) => {
     dispatch({ type: "Fetch_Crews_Casts", payload: fetch_crews_casts });
   };
 };
+
+// fetch movie review
+export const fetchMovieReview = (movie_id) => {
+  return async (dispatch) => {
+    let fetch_movie_review = await fetch(
+      `https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=c3cea5dfe524b09cb4548284a077e8f0&language=en-US&page=1`
+    );
+    fetch_movie_review = await fetch_movie_review.json();
+    fetch_movie_review = fetch_movie_review.results;
+    dispatch({ type: "Fetch_Movie_Review", payload: fetch_movie_review });
+  };
+};
