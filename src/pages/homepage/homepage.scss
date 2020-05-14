@@ -3,8 +3,10 @@
   margin-top: 30px;
 
   h1 {
-    font-family: "Roboto Mono", monospace;
-    margin-top: 60px;
+    font-family: "Source Sans Pro", sans-serif;
+    //margin-top: 60px;
+    margin: 40px auto 20px auto;
+    max-width: 1500px;
   }
 
   .top-menu {
@@ -12,6 +14,8 @@
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+    max-width: 1500px;
+    margin: auto;
     //justify-content: space-between;
   }
 
@@ -20,13 +24,20 @@
     grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
     grid-column-gap: 30px;
     grid-row-gap: 30px;
+    max-width: 1500px;
+    margin: auto;
   }
 
-  .news-api {
-    color: white;
+  p {
+    max-width: 1500px;
+    margin: 10px auto;
+
+    .news-api {
+      color: black;
+    }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 630px) {
     h1 {
       text-align: center;
     }
@@ -34,6 +45,7 @@
     .news-container {
       display: flex;
       flex-direction: column;
+      width: 100%;
     }
   }
 }
