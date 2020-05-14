@@ -73,3 +73,20 @@ export const fetchMovieReview = (movie_id) => {
     dispatch({ type: "Fetch_Movie_Review", payload: fetch_movie_review });
   };
 };
+
+// fetch recommendations movie
+export const fetchRecommendationsMovie = (movie_id) => {
+  return async (dispatch) => {
+    let fetch_recommendations_movie = await fetch(
+      `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=c3cea5dfe524b09cb4548284a077e8f0&language=en-US&page=1`
+    );
+    fetch_recommendations_movie = await fetch_recommendations_movie.json();
+    fetch_recommendations_movie = fetch_recommendations_movie.results;
+    dispatch({
+      type: "Fetch_Recommendations_Movie",
+      payload: fetch_recommendations_movie,
+    });
+  };
+};
+
+//https://api.themoviedb.org/3/movie/299536/recommendations?api_key=c3cea5dfe524b09cb4548284a077e8f0&language=en-US&page=1

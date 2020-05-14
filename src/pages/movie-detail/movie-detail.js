@@ -5,23 +5,18 @@ import {
   fetchMovieDetail,
   fetchCrewsCasts,
   fetchMovieReview,
+  fetchRecommendationsMovie,
 } from "../../actions/index";
 import "./movie-detail.scss";
 import Slider from "../../components/slider/slider";
 import ActorCard from "../../components/actor-card/actor-card";
 
 class MovieDetail extends React.Component {
-  review = [];
   componentDidMount = async () => {
     this.props.fetchMovieDetail(window.location.pathname.slice(7));
     this.props.fetchCrewsCasts(window.location.pathname.slice(7));
     this.props.fetchMovieReview(window.location.pathname.slice(7));
-
-    this.review = await fetch(
-      "https://api.themoviedb.org/3/movie/299536/reviews?api_key=c3cea5dfe524b09cb4548284a077e8f0&language=en-US&page=1"
-    );
-    this.review = await this.review.json();
-    this.review = this.review.results;
+    this.props.fetchRecommendationsMovie(window.location.pathname.slice(7));
   };
 
   formatDate = (date) => {
@@ -53,11 +48,8 @@ class MovieDetail extends React.Component {
       </Link>
     );
 
-    // console.log(this.props.moviewReview);
     return casts_arr;
   };
-
-  renderRecommendations = () => {};
 
   renderReview = () => {
     return this.props.moviewReview.map((r) => {
@@ -66,8 +58,35 @@ class MovieDetail extends React.Component {
           <div className="review-author">
             Written By <span className="author-name">{r.author}</span>
           </div>
-          <div className="review-paragraph">{r.content}</div>
+          <div className="review-paragraph">
+            {r.content.length <= 400
+              ? r.content
+              : `${r.content.slice(0, 400)} ....`}
+          </div>
         </div>
+      );
+    });
+  };
+
+  renderRecommendations = () => {
+    return this.props.recommendationsMovie.map((movie) => {
+      return (
+        //movie:${movie.id}
+        <Link
+          to={`movie:${movie.id}`}
+          className="rec-movie-box"
+          key={movie.id}
+          onClick={async () => {
+            await this.props.fetchMovieDetail(movie.id);
+            window.location.reload();
+          }}
+        >
+          <img
+            className="rec-movie-img"
+            src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}
+          />
+          <div className="rec-movie-title">{movie.title}</div>
+        </Link>
       );
     });
   };
@@ -125,15 +144,6 @@ class MovieDetail extends React.Component {
         </div>
 
         <div className="section-title">
-          <div className="title">You Might Also Like</div>
-        </div>
-        <div className="recommendations-container">
-          <div className="recommendations-list">
-            <Slider>{this.props.casts ? this.renderCasts() : null}</Slider>
-          </div>
-        </div>
-
-        <div className="section-title">
           <div className="title">Casts</div>
         </div>
         <div className="casts-container">
@@ -152,6 +162,15 @@ class MovieDetail extends React.Component {
           <Link to="#" className="title">
             More Reviews
           </Link>
+        </div>
+
+        <div className="section-title">
+          <div className="title">You Might Also Like</div>
+        </div>
+        <div className="recommendations-container">
+          <div className="recommendations-list">
+            <Slider>{this.renderRecommendations()}</Slider>
+          </div>
         </div>
       </div>
     );
@@ -187,6 +206,7 @@ const mapStateToProps = (state) => {
     director: director,
     casts: state.crewsCasts.cast,
     moviewReview: state.moviewReview.slice(0, 4),
+    recommendationsMovie: state.recommendationsMovie,
   };
 };
 
@@ -194,4 +214,5 @@ export default connect(mapStateToProps, {
   fetchMovieDetail,
   fetchCrewsCasts,
   fetchMovieReview,
+  fetchRecommendationsMovie,
 })(MovieDetail);
