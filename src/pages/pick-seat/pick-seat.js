@@ -11,13 +11,51 @@ class PickSeat extends React.Component {
   };
 
   renderWeek = () => {
-    var today = new Date();
-    var dd = String(today.getDate() + 17).padStart(2, "0");
-    var mm = String(today.getMonth() + 1).padStart(2, "0");
-    var yyyy = today.getFullYear();
+    var today, dd, mm, yyyy;
+    var dateArr = [];
 
-    today = `${mm}/${dd}/${yyyy}`;
-    return today;
+    for (var i = 0; i < 7; i++) {
+      today = new Date();
+      today.setDate(today.getDate() + i);
+      dd = String(today.getDate()).padStart(2, "0");
+      mm = String(today.getMonth() + 1).padStart(2, "0");
+      yyyy = today.getFullYear();
+      dateArr.push(`${mm}/${dd}/${yyyy}`);
+    }
+
+    return dateArr.map((d) => {
+      return <option key={d}>{d}</option>;
+    });
+  };
+
+  seatOnClick = (e) => {
+    console.log(e.target.className);
+  };
+
+  renderSeatRow = (row) => {
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    var n;
+    var className;
+
+    return (
+      <div className="row">
+        {arr.map((s) => {
+          className = "seat";
+          n = Math.floor(Math.random() * 5);
+          if (n === 0) {
+            className = "seat occupied";
+          }
+
+          return (
+            <div
+              className={`${className}`}
+              onClick={this.seatOnClick}
+              key={`${row}${s}`}
+            >{`${row}${s}`}</div>
+          );
+        })}
+      </div>
+    );
   };
 
   render() {
@@ -28,13 +66,27 @@ class PickSeat extends React.Component {
           <div className="movie-title">{this.props.title}</div>
           <div className="date-time-qty">
             <div className="date">
-              <div>date</div>
-              <select id="movie">
-                <option>{this.renderWeek()}</option>
+              <div>Date</div>
+              <select className="option">{this.renderWeek()}</select>
+            </div>
+            <div className="time">
+              <div>Time</div>
+              <select className="option">
+                <option>10:00 AM</option>
+                <option>12:30 PM</option>
+                <option>02:15 PM</option>
+                <option>04:00 PM</option>
+                <option>06:30 PM</option>
+                <option>07:30 PM</option>
+                <option>08:15 PM</option>
+                <option>09:45 PM</option>
+                <option>11:00 PM</option>
               </select>
             </div>
-            <div className="time">time</div>
-            <div className="qty">qty</div>
+            <div className="ticket-price">
+              <div>Ticket Price</div>
+              <div className="price">$10</div>
+            </div>
           </div>
           <div className="divider"></div>
 
@@ -56,66 +108,12 @@ class PickSeat extends React.Component {
           <div className="screen"></div>
 
           <div className="seat-grid">
-            <div className="row">
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-            </div>
-            <div className="row">
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat occupied"></div>
-              <div className="seat occupied"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-            </div>
-            <div className="row">
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat occupied"></div>
-              <div className="seat occupied"></div>
-            </div>
-            <div className="row">
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-            </div>
-            <div className="row">
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat occupied"></div>
-              <div className="seat occupied"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-            </div>
-            <div className="row">
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat occupied"></div>
-              <div className="seat occupied"></div>
-              <div className="seat occupied"></div>
-              <div className="seat"></div>
-            </div>
+            {this.renderSeatRow("A")}
+            {this.renderSeatRow("B")}
+            {this.renderSeatRow("C")}
+            {this.renderSeatRow("D")}
+            {this.renderSeatRow("E")}
+            {this.renderSeatRow("F")}
           </div>
 
           <div className="text">

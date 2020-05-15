@@ -88,11 +88,4 @@ export const selectMovie = (movie) => {
     payload: movie,
   };
 };
-
-export const footerBottom = () => {
-  return {
-    type: "FOOTER_BOTTOM",
-  };
-};
-
 //https://api.themoviedb.org/3/movie/299536/recommendations?api_key=c3cea5dfe524b09cb4548284a077e8f0&language=en-US&page=1

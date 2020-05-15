@@ -12,7 +12,6 @@ import Payment from "./pages/payment/payment";
 import PickSeat from "./pages/pick-seat/pick-seat";
 import TheaterLocation from "./pages/theater-location/theater-location";
 import TheaterShowtime from "./pages/theater-showtime/theater-showtime";
-import { footerBottom } from "./actions";
 import "./App.css";
 
 class App extends Component {
@@ -20,11 +19,6 @@ class App extends Component {
 
   state = {
     sideMenuOpen: false,
-    // upcomingMovie: [],
-  };
-
-  componentDidMount = async () => {
-    await this.props.footerBottom();
   };
 
   toggleClickHandler = () => {
@@ -76,12 +70,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    footerbottom: state.footerBottom,
-  };
-};
-
-export default connect(mapStateToProps, {
-  footerBottom,
-})(App);
+export default App;
