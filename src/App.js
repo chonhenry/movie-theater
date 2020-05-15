@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
 import SideMenu from "./components/side-menu/side-menu";
@@ -11,6 +12,7 @@ import Payment from "./pages/payment/payment";
 import PickSeat from "./pages/pick-seat/pick-seat";
 import TheaterLocation from "./pages/theater-location/theater-location";
 import TheaterShowtime from "./pages/theater-showtime/theater-showtime";
+import { footerBottom } from "./actions";
 import "./App.css";
 
 class App extends Component {
@@ -21,17 +23,9 @@ class App extends Component {
     // upcomingMovie: [],
   };
 
-  componentDidMount() {
-    // fetch(
-    //   `https://api.themoviedb.org/3/movie/now_playing?api_key=${this.api_key}&language=en-US&page=1`
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     this.setState({ upcomingMovie: data.results }, () =>
-    //       console.log(this.state.upcomingMovie)
-    //     );
-    //   });
-  }
+  componentDidMount = async () => {
+    await this.props.footerBottom();
+  };
 
   toggleClickHandler = () => {
     this.setState((prevState) => {
@@ -72,11 +66,22 @@ class App extends Component {
             exact
             component={TheaterShowtime}
           ></Route>
-          <Footer></Footer>
+          <Footer
+          // className={`${this.props.footerbottom ? "bottom" : null}`}
+          // className="bottom"
+          ></Footer>
         </BrowserRouter>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    footerbottom: state.footerBottom,
+  };
+};
+
+export default connect(mapStateToProps, {
+  footerBottom,
+})(App);

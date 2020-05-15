@@ -13,7 +13,14 @@ body {
   /* background-color: #172a45; */
   width: 100%;
   height: 100%;
+  /* position: relative; */
 }
+
+/* .root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

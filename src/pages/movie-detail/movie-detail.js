@@ -111,7 +111,7 @@ class MovieDetail extends React.Component {
                 <strong>{this.props.title}</strong>
               </div>
 
-              <Link className="ticket-link" to="/">
+              <Link className="ticket-link" to="/seat">
                 Buy Tickets
               </Link>
 

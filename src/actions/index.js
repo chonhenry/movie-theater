@@ -25,7 +25,7 @@ export const fetchUpcomingMovie = (api_key) => {
 export const fetchMovieNews = (api_key) => {
   return async (dispatch) => {
     let fetch_news = await fetch(
-      `https://newsapi.org/v2/everything?q=hollywood-movies-oscar-actor-actress&sortBy=popularity&apiKey=${api_key}`
+      `https://newsapi.org/v2/everything?q=hollywood-movies-actor-actress&sortBy=publishedAt&apiKey=${api_key}`
     );
     fetch_news = await fetch_news.json();
     fetch_news = await fetch_news.articles;
@@ -41,13 +41,6 @@ export const fetchMovieDetail = (movie_id) => {
     );
     fetch_movie = await fetch_movie.json();
     dispatch({ type: "Fetch_Movie_Detail", payload: fetch_movie });
-  };
-};
-
-export const selectMovie = (movie) => {
-  return {
-    type: "MOVIE_SELECTED",
-    payload: movie,
   };
 };
 
@@ -86,6 +79,19 @@ export const fetchRecommendationsMovie = (movie_id) => {
       type: "Fetch_Recommendations_Movie",
       payload: fetch_recommendations_movie,
     });
+  };
+};
+
+export const selectMovie = (movie) => {
+  return {
+    type: "MOVIE_SELECTED",
+    payload: movie,
+  };
+};
+
+export const footerBottom = () => {
+  return {
+    type: "FOOTER_BOTTOM",
   };
 };
 

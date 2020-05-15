@@ -48,12 +48,12 @@ class Homepage extends React.Component {
   render() {
     return (
       <div className="homepage container">
-        <div className="top-menu">
+        {/* <div className="top-menu">
           <Box linkTo="/">Latest</Box>
           <Box linkTo="/">Now Playing</Box>
           <Box linkTo="/">Top Rated</Box>
           <Box linkTo="/">Upcoming</Box>
-        </div>
+        </div> */}
         <h1>Now Playing</h1>
         <MovieList>{this.renderNowPlaying()}</MovieList>
         <h1>Upcoming</h1>

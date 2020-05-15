@@ -17,4 +17,12 @@ export default combineReducers({
   crewsCasts: crewsCastsReducer,
   moviewReview: moviewReviewReducer,
   recommendationsMovie: recommendationsMovieReducer,
+  footerBottom: (state = 1, action) => {
+    switch (action.type) {
+      case "FOOTER_BOTTOM":
+        return state + 1;
+      default:
+        return state;
+    }
+  },
 });
