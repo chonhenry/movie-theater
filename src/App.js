@@ -58,7 +58,7 @@ class App extends Component {
             component={MovieShowtime}
           ></Route>
           <Route path="/payment" exact component={Payment}></Route>
-          <Route path="/seat" exact component={PickSeat}></Route>
+          <Route path="/movie:id/seat" exact component={PickSeat}></Route>
           <Route path="/location" exact component={TheaterLocation}></Route>
           {/* <Route path="/search" exact component={Search}></Route> */}
           <Route
