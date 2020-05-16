@@ -8,6 +8,7 @@
     width: 1300px;
     padding: 0;
     text-align: center;
+    perspective: 1000px;
 
     .title {
       margin: 20px 0;
@@ -102,6 +103,8 @@
       width: 400px;
       height: 70px;
       margin: 0 auto 20px auto;
+      transform: rotateX(-45deg);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
     }
 
     .seat-grid {

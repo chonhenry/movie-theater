@@ -23,6 +23,8 @@ class PickSeat extends React.Component {
     // yyyy = today.getFullYear();
     // this.props.SetDate(`${mm}/${dd}/${yyyy}`);
     this.props.SetDate("");
+
+    window.scrollTo(0, 0);
   };
 
   renderWeek = () => {

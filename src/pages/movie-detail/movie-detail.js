@@ -13,6 +13,7 @@ import ActorCard from "../../components/actor-card/actor-card";
 
 class MovieDetail extends React.Component {
   componentDidMount = async () => {
+    window.scrollTo(0, 0);
     this.props.fetchMovieDetail(window.location.pathname.slice(7));
     this.props.fetchCrewsCasts(window.location.pathname.slice(7));
     this.props.fetchMovieReview(window.location.pathname.slice(7));
@@ -32,8 +33,8 @@ class MovieDetail extends React.Component {
   };
 
   formatRuntime = (runtime) => {
-    var hr = Math.floor(this.props.runtime / 60);
-    var min = this.props.runtime - Math.floor(this.props.runtime / 60) * 60;
+    var hr = Math.floor(runtime / 60);
+    var min = runtime - Math.floor(runtime / 60) * 60;
     return `${hr}h ${min}m`;
   };
 

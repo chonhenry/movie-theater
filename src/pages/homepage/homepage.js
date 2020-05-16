@@ -19,6 +19,7 @@ class Homepage extends React.Component {
     this.props.fetchNowPlayingMovie(this.tmdb_api_key);
     this.props.fetchUpcomingMovie(this.tmdb_api_key);
     this.props.fetchMovieNews(this.news_api_ksy);
+    window.scrollTo(0, 0);
   }
 
   renderNowPlaying = () => {
