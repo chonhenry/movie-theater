@@ -17,6 +17,12 @@ export default (state = INTIAL_STATE, action) => {
         seats_qty: state.seats_qty - 1,
         selectedSeat: state.selectedSeat.filter((s) => s != action.payload),
       };
+    case "CLEAR_SEATS":
+      return {
+        ...state,
+        seats_qty: 0,
+        selectedSeat: [],
+      };
     default:
       return state;
   }

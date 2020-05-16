@@ -96,9 +96,29 @@ export const selectSeats = (seat) => {
   };
 };
 
-export const disSelectSeats = (seat) => {
+export const UnselectSeats = (seat) => {
   return {
     type: "UNSELECT_SEATS",
     payload: seat,
+  };
+};
+
+export const clearSeats = () => {
+  return {
+    type: "CLEAR_SEATS",
+  };
+};
+
+export const SetDate = (date) => {
+  return {
+    type: "SET_DATE",
+    payload: date,
+  };
+};
+
+export const SetTime = (time) => {
+  return {
+    type: "SET_TIME",
+    payload: time,
   };
 };

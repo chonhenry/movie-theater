@@ -152,11 +152,27 @@
         margin-bottom: 30px;
       }
       .payment {
-        color: black;
-        border: 1px solid black;
+        color: white;
+        border: 1px black solid;
+        background: black;
         padding: 10px 20px;
         text-decoration: none;
         border-radius: 100px;
+
+        &:hover {
+          background: white;
+          color: black;
+        }
+      }
+
+      .payment.disabled {
+        border: 1px gray solid;
+        background: gray;
+
+        &:hover {
+          color: white;
+          cursor: default;
+        }
       }
     }
   }

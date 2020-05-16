@@ -4,18 +4,30 @@ import { Link } from "react-router-dom";
 import {
   fetchMovieDetail,
   selectSeats,
-  disSelectSeats,
+  UnselectSeats,
+  clearSeats,
+  SetDate,
+  SetTime,
 } from "../../actions/index";
 import "./pick-seat.scss";
 
 class PickSeat extends React.Component {
   componentDidMount = () => {
     this.props.fetchMovieDetail(window.location.pathname.slice(7, 13));
+    this.props.clearSeats();
+
+    // var today, dd, mm, yyyy;
+    // today = new Date();
+    // dd = String(today.getDate()).padStart(2, "0");
+    // mm = String(today.getMonth() + 1).padStart(2, "0");
+    // yyyy = today.getFullYear();
+    // this.props.SetDate(`${mm}/${dd}/${yyyy}`);
+    this.props.SetDate("");
   };
 
   renderWeek = () => {
     var today, dd, mm, yyyy;
-    var dateArr = [];
+    var dateArr = [""];
 
     for (var i = 0; i < 7; i++) {
       today = new Date();
@@ -41,7 +53,7 @@ class PickSeat extends React.Component {
 
     if (className === "seat selected") {
       e.target.className = "seat";
-      this.props.disSelectSeats(seat);
+      this.props.UnselectSeats(seat);
     }
   };
 
@@ -84,6 +96,26 @@ class PickSeat extends React.Component {
     );
   };
 
+  renderPaymentButtom = () => {
+    if (this.props.date !== "" && this.props.time !== "") {
+      return (
+        <Link to="/payment" className="payment">
+          Proceed To Payment
+        </Link>
+      );
+    } else {
+      return (
+        <Link
+          to="/payment"
+          className="payment disabled"
+          onClick={(event) => event.preventDefault()}
+        >
+          Proceed To Payment
+        </Link>
+      );
+    }
+  };
+
   render() {
     return (
       <div className="pick-seat">
@@ -93,11 +125,20 @@ class PickSeat extends React.Component {
           <div className="date-time-qty">
             <div className="date">
               <div>Date</div>
-              <select className="option">{this.renderWeek()}</select>
+              <select
+                className="option"
+                onChange={(e) => this.props.SetDate(e.target.value)}
+              >
+                {this.renderWeek()}
+              </select>
             </div>
             <div className="time">
               <div>Time</div>
-              <select className="option">
+              <select
+                className="option"
+                onChange={(e) => this.props.SetTime(e.target.value)}
+              >
+                <option></option>
                 <option>10:00 AM</option>
                 <option>12:30 PM</option>
                 <option>02:15 PM</option>
@@ -147,9 +188,8 @@ class PickSeat extends React.Component {
               You have selected <strong>{this.props.seatsQty}</strong> seats for
               a price of <strong>${this.props.seatsQty * 15}</strong>
             </div>
-            <Link to="/payment" className="payment">
-              Proceed To Payment
-            </Link>
+            {this.renderPaymentButtom()}
+            <div>{this.props.time}</div>
           </div>
         </div>
       </div>
@@ -162,11 +202,16 @@ const mapStateToProps = (state) => {
     title: state.movieDetail.title,
     seatsQty: state.seatsInfo.seats_qty,
     selectedSeat: state.seatsInfo.selectedSeat,
+    date: state.date,
+    time: state.time,
   };
 };
 
 export default connect(mapStateToProps, {
   fetchMovieDetail,
   selectSeats,
-  disSelectSeats,
+  UnselectSeats,
+  clearSeats,
+  SetDate,
+  SetTime,
 })(PickSeat);
