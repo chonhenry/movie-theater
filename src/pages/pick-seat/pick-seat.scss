@@ -185,6 +185,16 @@
         flex-direction: column;
         justify-content: center;
         margin-bottom: 30px;
+
+        .option,
+        .price {
+          margin-top: 0;
+        }
+
+        .time,
+        .ticket-price {
+          margin-top: 15px;
+        }
       }
 
       .showcase {
