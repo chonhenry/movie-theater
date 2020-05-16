@@ -16,7 +16,6 @@
     }
 
     .movie-title {
-      // border: 1px black solid;
       display: inline-block;
       font-weight: 900;
       font-size: 50px;
@@ -24,7 +23,6 @@
     }
 
     .date-time-qty {
-      // border: 1px black solid;
       display: flex;
       justify-content: center;
       margin-bottom: 30px;
@@ -34,17 +32,8 @@
         margin-top: 10px;
       }
 
-      .date {
-        // border: 1px red solid;
-      }
-
       .time {
-        // border: 1px blue solid;
         margin: 0 100px;
-      }
-
-      .ticket-price {
-        // border: 1px green solid;
       }
     }
 
@@ -158,10 +147,10 @@
         color: white;
         border: 1px black solid;
         background: black;
-        padding: 10px 20px;
+        padding: 20px 0;
         text-decoration: none;
         border-radius: 100px;
-        width: 150px;
+        width: 250px;
         margin: auto;
 
         &:hover {
