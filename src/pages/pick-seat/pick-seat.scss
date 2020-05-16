@@ -3,7 +3,6 @@
   justify-content: center;
 
   .container {
-    border: 1px solid red;
     margin-bottom: 110px;
     width: 1300px;
     padding: 0;
@@ -154,6 +153,7 @@
       .ticket-qty {
         margin-bottom: 30px;
       }
+
       .payment {
         color: white;
         border: 1px black solid;
@@ -161,6 +161,8 @@
         padding: 10px 20px;
         text-decoration: none;
         border-radius: 100px;
+        width: 150px;
+        margin: auto;
 
         &:hover {
           background: white;
