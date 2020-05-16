@@ -88,4 +88,17 @@ export const selectMovie = (movie) => {
     payload: movie,
   };
 };
-//https://api.themoviedb.org/3/movie/299536/recommendations?api_key=c3cea5dfe524b09cb4548284a077e8f0&language=en-US&page=1
+
+export const selectSeats = (seat) => {
+  return {
+    type: "SELECT_SEATS",
+    payload: seat,
+  };
+};
+
+export const disSelectSeats = (seat) => {
+  return {
+    type: "UNSELECT_SEATS",
+    payload: seat,
+  };
+};

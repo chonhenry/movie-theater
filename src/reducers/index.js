@@ -7,6 +7,7 @@ import movieDetailReducer from "./movieDetailReducer";
 import crewsCastsReducer from "./crewsCastsReducer";
 import moviewReviewReducer from "./moviewReviewReducer";
 import recommendationsMovieReducer from "./recommendationsMovieReducer";
+import seatsInfoReducer from "./seatsInfoReducer";
 
 export default combineReducers({
   nowPlaying: nowPLayingReducer,
@@ -17,4 +18,5 @@ export default combineReducers({
   crewsCasts: crewsCastsReducer,
   moviewReview: moviewReviewReducer,
   recommendationsMovie: recommendationsMovieReducer,
+  seatsInfo: seatsInfoReducer,
 });

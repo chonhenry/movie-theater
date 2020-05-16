@@ -3,7 +3,7 @@
   justify-content: center;
 
   .container {
-    border: 1px red solid;
+    // border: 1px red solid;
     margin-bottom: 110px;
     width: 1300px;
     padding: 0;
@@ -98,7 +98,7 @@
     }
 
     .screen {
-      background-color: greenyellow;
+      background-color: black;
       width: 400px;
       height: 70px;
       margin: 0 auto 20px auto;
@@ -140,10 +140,24 @@
         .occupied {
           background-color: red;
         }
+
+        .selected {
+          background-color: #6feaf6;
+        }
       }
     }
 
-    .text {
+    .summary {
+      .ticket-qty {
+        margin-bottom: 30px;
+      }
+      .payment {
+        color: black;
+        border: 1px solid black;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 100px;
+      }
     }
   }
 }

@@ -1,13 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchMovieDetail } from "../../actions/index";
+import {
+  fetchMovieDetail,
+  selectSeats,
+  disSelectSeats,
+} from "../../actions/index";
 import "./pick-seat.scss";
 
 class PickSeat extends React.Component {
   componentDidMount = () => {
-    // await this.props.footerBottom();
-    // console.log(this.props.footer);
+    this.props.fetchMovieDetail(window.location.pathname.slice(7, 13));
   };
 
   renderWeek = () => {
@@ -28,30 +31,53 @@ class PickSeat extends React.Component {
     });
   };
 
-  seatOnClick = (e) => {
-    console.log(e.target.className);
+  seatOnClick = (e, seat) => {
+    let className = e.target.className;
+
+    if (className === "seat") {
+      e.target.className = "seat selected";
+      this.props.selectSeats(seat);
+    }
+
+    if (className === "seat selected") {
+      e.target.className = "seat";
+      this.props.disSelectSeats(seat);
+    }
   };
 
   renderSeatRow = (row) => {
     var arr = [1, 2, 3, 4, 5, 6, 7, 8];
-    var n;
     var className;
+    var seat;
 
     return (
       <div className="row">
         {arr.map((s) => {
           className = "seat";
-          n = Math.floor(Math.random() * 5);
-          if (n === 0) {
+          seat = `${row}${s}`;
+
+          if (
+            seat === "B4" ||
+            seat === "B5" ||
+            seat === "C7" ||
+            seat === "C8" ||
+            seat === "E4" ||
+            seat === "E5" ||
+            seat === "F5" ||
+            seat === "F6" ||
+            seat === "F7"
+          ) {
             className = "seat occupied";
           }
 
           return (
             <div
               className={`${className}`}
-              onClick={this.seatOnClick}
-              key={`${row}${s}`}
-            >{`${row}${s}`}</div>
+              onClick={(e) => this.seatOnClick(e, `${row}${s}`)}
+              key={seat}
+            >
+              {seat}
+            </div>
           );
         })}
       </div>
@@ -116,8 +142,14 @@ class PickSeat extends React.Component {
             {this.renderSeatRow("F")}
           </div>
 
-          <div className="text">
-            {`You have selected 1 seats for a price of $12`}
+          <div className="summary">
+            <div className="ticket-qty">
+              You have selected <strong>{this.props.seatsQty}</strong> seats for
+              a price of <strong>${this.props.seatsQty * 15}</strong>
+            </div>
+            <Link to="/payment" className="payment">
+              Proceed To Payment
+            </Link>
           </div>
         </div>
       </div>
@@ -128,9 +160,13 @@ class PickSeat extends React.Component {
 const mapStateToProps = (state) => {
   return {
     title: state.movieDetail.title,
+    seatsQty: state.seatsInfo.seats_qty,
+    selectedSeat: state.seatsInfo.selectedSeat,
   };
 };
 
 export default connect(mapStateToProps, {
   fetchMovieDetail,
+  selectSeats,
+  disSelectSeats,
 })(PickSeat);

@@ -111,7 +111,10 @@ class MovieDetail extends React.Component {
                 <strong>{this.props.title}</strong>
               </div>
 
-              <Link className="ticket-link" to="/movie:id/seat">
+              <Link
+                className="ticket-link"
+                to={`/movie:${this.props.movieDetail.id}/seat`}
+              >
                 Buy Tickets
               </Link>
 
