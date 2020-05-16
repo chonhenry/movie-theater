@@ -3,7 +3,7 @@
   justify-content: center;
 
   .container {
-    border: 1px solid red;
+    // border: 1px solid red;
     margin-bottom: 110px;
     width: 1300px;
     padding: 0;
@@ -20,13 +20,48 @@
       display: flex;
 
       .credit-card-form {
-        border: 1px solid black;
+        // border: 1px solid black;
         width: 50%;
+        padding: 0 50px;
+
+        .payment-label {
+          font-size: 25px;
+          font-weight: 700;
+        }
+
+        .label {
+          //   border: 1px solid blue;
+          margin-top: 20px;
+        }
+
+        .cardholder-name,
+        .card-number {
+          width: 250px;
+          margin-top: 5px;
+          padding: 10px 10px;
+          border-radius: 5px;
+          border: 1px solid lightgray;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .expiration {
+          margin-top: 20px;
+          display: flex;
+
+          .exp-month-container,
+          .exp-year-container {
+            width: 100%;
+          }
+        }
       }
 
       .payment-summary {
         border: 1px solid black;
         width: 50%;
+        padding: 0 30px;
       }
     }
   }
