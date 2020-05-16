@@ -1,0 +1,33 @@
+.payment {
+  display: flex;
+  justify-content: center;
+
+  .container {
+    border: 1px solid red;
+    margin-bottom: 110px;
+    width: 1300px;
+    padding: 0;
+
+    .title {
+      border: 1px solid black;
+      margin: 20px auto;
+      font-weight: 700;
+      font-size: 40px;
+      text-align: center;
+    }
+
+    .payment-detail {
+      display: flex;
+
+      .credit-card-form {
+        border: 1px solid black;
+        width: 50%;
+      }
+
+      .payment-summary {
+        border: 1px solid black;
+        width: 50%;
+      }
+    }
+  }
+}
