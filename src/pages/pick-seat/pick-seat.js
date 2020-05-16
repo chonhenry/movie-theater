@@ -97,7 +97,11 @@ class PickSeat extends React.Component {
   };
 
   renderPaymentButtom = () => {
-    if (this.props.date !== "" && this.props.time !== "") {
+    if (
+      this.props.date !== "" &&
+      this.props.time !== "" &&
+      this.props.seatsQty !== 0
+    ) {
       return (
         <Link to="/payment" className="payment">
           Proceed To Payment
@@ -189,7 +193,7 @@ class PickSeat extends React.Component {
               a price of <strong>${this.props.seatsQty * 15}</strong>
             </div>
             {this.renderPaymentButtom()}
-            <div>{this.props.time}</div>
+            {/* <div>{this.props.time}</div> */}
           </div>
         </div>
       </div>
