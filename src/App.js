@@ -12,6 +12,7 @@ import Payment from "./pages/payment/payment";
 import PickSeat from "./pages/pick-seat/pick-seat";
 import TheaterLocation from "./pages/theater-location/theater-location";
 import TheaterShowtime from "./pages/theater-showtime/theater-showtime";
+import SearchMovie from "./pages/search-movie/search-movie";
 import "./App.css";
 
 class App extends Component {
@@ -46,6 +47,11 @@ class App extends Component {
           {backdrop}
           <Route path="/" exact component={Homepage}></Route>
           <Route path="/movie:id" exact component={MovieDetail}></Route>
+          <Route
+            path="/search:searchTerm"
+            exact
+            component={SearchMovie}
+          ></Route>
           <Route
             path="/showtime/movie:id"
             exact

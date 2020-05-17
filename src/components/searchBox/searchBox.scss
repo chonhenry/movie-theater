@@ -12,6 +12,8 @@
   justify-content: center;
 
   .fas {
+    color: white;
+    text-decoration: none;
   }
 
   .search-input {
@@ -19,7 +21,7 @@
     background-color: black;
     color: white;
     margin-left: 10px;
-    width: 80%;
+    width: 85%;
     font-size: 20px;
 
     &:focus {

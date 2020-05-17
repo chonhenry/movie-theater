@@ -37,15 +37,10 @@
 
       li {
         margin: 0 30px 0 30px;
+        color: white;
 
         &:hover {
-          background-color: black;
           cursor: pointer;
-        }
-
-        .link {
-          color: white;
-          text-decoration: none;
         }
       }
     }

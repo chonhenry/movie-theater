@@ -44,15 +44,15 @@ class Navbar extends React.Component {
                 </Link>
               </li> */}
               <li onClick={() => this.backdropToggle()}>
-                <Link to="/" className="link">
+                <div className="search-logo">
                   <i className="fas fa-search fa-2x"></i>
-                </Link>
+                </div>
               </li>
             </ul>
           </div>
         </nav>
         {this.state.backdrop ? <Backdrop click={this.backdropToggle} /> : null}
-        {this.state.backdrop ? <SearchBox /> : null}
+        {this.state.backdrop ? <SearchBox click={this.backdropToggle} /> : null}
       </header>
     );
   }

@@ -82,6 +82,28 @@ export const fetchRecommendationsMovie = (movie_id) => {
   };
 };
 
+// fetch search movie
+export const searchMovie = (query) => {
+  return async (dispatch) => {
+    let search_movie = await fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=c3cea5dfe524b09cb4548284a077e8f0&query=${query}&language=en-US&page=1&include_adult=false`
+    );
+    search_movie = await search_movie.json();
+    search_movie = search_movie.results;
+    dispatch({
+      type: "Search_Movie",
+      payload: search_movie,
+    });
+  };
+};
+
+export const changeSearchterm = (searchTerm) => {
+  return {
+    type: "CHANGE_SEARCHTERM",
+    payload: searchTerm,
+  };
+};
+
 export const selectMovie = (movie) => {
   return {
     type: "MOVIE_SELECTED",

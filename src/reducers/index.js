@@ -10,6 +10,8 @@ import recommendationsMovieReducer from "./recommendationsMovieReducer";
 import seatsInfoReducer from "./seatsInfoReducer";
 import dateReducer from "./dateReducer";
 import timeReducer from "./timeReducer";
+import searchMovieReducer from "./searchMovieReducer";
+import searchTermReducer from "./searchTermReducer";
 
 export default combineReducers({
   nowPlaying: nowPLayingReducer,
@@ -23,4 +25,6 @@ export default combineReducers({
   seatsInfo: seatsInfoReducer,
   date: dateReducer,
   time: timeReducer,
+  searchMovie: searchMovieReducer,
+  searchTerm: searchTermReducer,
 });
