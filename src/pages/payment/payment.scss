@@ -1,6 +1,7 @@
 .payment {
   display: flex;
   justify-content: center;
+  font-family: "Source Sans Pro", sans-serif;
 
   .container {
     // border: 1px solid red;
@@ -10,19 +11,19 @@
 
     .title {
       border: 1px solid black;
-      margin: 20px auto;
+      margin: 20px 30px;
       font-weight: 700;
-      font-size: 40px;
+      font-size: 50px;
       text-align: center;
     }
 
     .payment-detail {
       display: flex;
+      padding: 0 30px;
 
       .credit-card-form {
         // border: 1px solid black;
         width: 50%;
-        padding: 0 50px;
 
         .payment-label {
           font-size: 25px;
@@ -37,7 +38,7 @@
         .cardholder-name,
         .card-number {
           width: 250px;
-          margin-top: 5px;
+          margin: 5px 0 0 0;
           padding: 10px 10px;
           border-radius: 5px;
           border: 1px solid lightgray;
@@ -50,18 +51,195 @@
         .expiration {
           margin-top: 20px;
           display: flex;
+          //width: 50%;
+
+          select {
+            width: 120px;
+            margin-top: 5px;
+            height: 32px;
+            background-color: white;
+            border-color: lightgray;
+
+            &:focus {
+              outline: none;
+            }
+          }
 
           .exp-month-container,
           .exp-year-container {
+            width: 150px;
+          }
+        }
+
+        .cvc {
+          width: 250px;
+          margin-top: 5px;
+          padding: 10px 10px;
+          border-radius: 5px;
+          border: 1px solid lightgray;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .payment-summary {
+      //   border: 1px solid black;
+      //   position: relative;
+      width: 50%;
+      padding-left: 50px;
+
+      .sumarry-label {
+        font-size: 25px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .summary-date {
+        display: inline-block;
+      }
+
+      .summary-time {
+        display: inline-block;
+        margin-left: 50px;
+      }
+
+      .summary-qty {
+        margin-top: 20px;
+      }
+
+      .summary-seats {
+        margin-top: 20px;
+      }
+
+      .line {
+        width: 100%;
+        height: 1px;
+        background-color: lightgray;
+        margin: 20px 0;
+      }
+
+      .summary-total {
+        margin-bottom: 85px;
+      }
+
+      .purchase-button {
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        width: 150px;
+        height: 50px;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .payment {
+    .container {
+      width: 100%;
+
+      .title {
+        font-size: 30px;
+      }
+
+      .payment-detail {
+        flex-direction: column;
+
+        .credit-card-form {
+          width: 100%;
+          text-align: center;
+
+          .payment-label {
+            font-size: 20px;
+            text-align: center;
+          }
+
+          .cardholder-name,
+          .card-number {
+            width: 80%;
+            margin: 5px auto 0 auto;
+          }
+
+          .expiration {
             width: 100%;
+            justify-content: center;
+
+            select {
+              width: 100px;
+              margin-top: 5px;
+              height: 32px;
+              background-color: white;
+              border-color: lightgray;
+
+              &:focus {
+                outline: none;
+              }
+            }
+
+            .exp-month-container,
+            .exp-year-container {
+              width: 100%;
+            }
+          }
+
+          .cvc {
+            width: 80%;
+            margin-top: 5px;
+            padding: 10px 10px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+
+            &:focus {
+              outline: none;
+            }
           }
         }
       }
 
       .payment-summary {
-        border: 1px solid black;
-        width: 50%;
-        padding: 0 30px;
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+
+        .sumarry-label {
+          margin-top: 50px;
+        }
+
+        .summary-date {
+          display: block;
+          margin-bottom: 20px;
+        }
+
+        .summary-time {
+          display: block;
+          margin-left: 0;
+        }
+
+        .summary-total {
+          margin-bottom: 50px;
+        }
+
+        .purchase-button {
+          margin: auto;
+          background-color: black;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 20px;
+          width: 150px;
+          height: 50px;
+          border-radius: 50px;
+          cursor: pointer;
+        }
       }
     }
   }

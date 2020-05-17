@@ -147,7 +147,7 @@
         color: white;
         border: 1px black solid;
         background: black;
-        padding: 20px 0;
+        padding: 15px 0;
         text-decoration: none;
         border-radius: 100px;
         width: 240px;
@@ -175,6 +175,11 @@
 @media (max-width: 500px) {
   .pick-seat {
     .container {
+      .movie-title {
+        margin: 20px 20px;
+        font-size: 30px;
+      }
+
       .date-time-qty {
         flex-direction: column;
         justify-content: center;

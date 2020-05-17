@@ -158,7 +158,7 @@ class PickSeat extends React.Component {
             </div>
             <div className="ticket-price">
               <div>Ticket Price</div>
-              <div className="price">$10</div>
+              <div className="price">$15</div>
             </div>
           </div>
           <div className="divider"></div>

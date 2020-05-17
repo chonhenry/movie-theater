@@ -8,7 +8,7 @@ class Payment extends React.Component {
     return (
       <div className="payment">
         <div className="container">
-          <div className="title">title: this.props.title</div>
+          <div className="title">{this.props.title}</div>
           <div className="payment-detail">
             <div className="credit-card-form">
               <div className="payment-label">Enter you payment details</div>
@@ -23,6 +23,7 @@ class Payment extends React.Component {
                 <div className="exp-month-container">
                   <div className="exp-month">Exp Month</div>
                   <select>
+                    <option></option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -41,6 +42,7 @@ class Payment extends React.Component {
                 <div className="exp-year-container">
                   <div className="exp-year">Exp Year</div>
                   <select>
+                    <option></option>
                     <option>2020</option>
                     <option>2021</option>
                     <option>2022</option>
@@ -50,15 +52,29 @@ class Payment extends React.Component {
                 </div>
               </div>
 
-              <div className="label cvc">CVC</div>
-              <input type="text"></input>
+              <div className="label">CVC</div>
+              <input type="text" className="cvc"></input>
             </div>
 
             <div className="payment-summary">
-              <div>qty: {this.props.seatsQty}</div>
-              <div>seat: {this.props.selectedSeat}</div>
-              <div>date: {this.props.date}</div>
-              <div>time: {this.props.time}</div>
+              <div className="sumarry-label">Summary</div>
+              <div className="summary-date">
+                Date: <strong>{this.props.date}</strong>
+              </div>
+              <div className="summary-time">
+                Time: <strong>{this.props.time}</strong>
+              </div>
+              <div className="summary-qty">
+                Ticket Qty: <strong>{this.props.seatsQty}</strong>
+              </div>
+              <div className="summary-seats">
+                Seats: <strong>{this.props.selectedSeat.join(", ")}</strong>
+              </div>
+              <div className="line"></div>
+              <div className="summary-total">
+                Total: <strong>${this.props.seatsQty * 15}</strong>
+              </div>
+              <div className="purchase-button">Purchase</div>
             </div>
           </div>
         </div>
