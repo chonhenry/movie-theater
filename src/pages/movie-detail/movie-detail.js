@@ -38,6 +38,25 @@ class MovieDetail extends React.Component {
     return `${hr}h ${min}m`;
   };
 
+  renderButTicketButton = (releaseDate) => {
+    var releaseDate = new Date(releaseDate);
+    var today = new Date();
+    const diffTime = Math.abs(today - releaseDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    console.log(diffDays);
+
+    if (diffDays <= 180) {
+      return (
+        <Link
+          className="ticket-link"
+          to={`/movie:${this.props.movieDetail.id}/seat`}
+        >
+          Buy Tickets
+        </Link>
+      );
+    }
+  };
+
   renderCasts = () => {
     let casts_arr = this.props.casts
       .slice(0, 10)
@@ -112,12 +131,7 @@ class MovieDetail extends React.Component {
                 <strong>{this.props.title}</strong>
               </div>
 
-              <Link
-                className="ticket-link"
-                to={`/movie:${this.props.movieDetail.id}/seat`}
-              >
-                Buy Tickets
-              </Link>
+              {this.renderButTicketButton(this.props.release_date)}
 
               <div className="date-genre-length">{`${this.formatDate(
                 this.props.release_date
