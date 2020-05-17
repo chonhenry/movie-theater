@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
 import SideMenu from "./components/side-menu/side-menu";
 import Backdrop from "./components/backdrop/backdrop";
+import SearchBox from "./components/searchBox/searchBox";
 import Homepage from "./pages/homepage/homepage";
 import MovieDetail from "./pages/movie-detail/movie-detail";
 import MovieShowtime from "./pages/movie-showtime/movie-showtime";
@@ -12,7 +13,7 @@ import Payment from "./pages/payment/payment";
 import PickSeat from "./pages/pick-seat/pick-seat";
 import TheaterLocation from "./pages/theater-location/theater-location";
 import TheaterShowtime from "./pages/theater-showtime/theater-showtime";
-import SearchMovie from "./pages/search-movie/search-movie";
+import SearchResult from "./pages/search-result/search-result";
 import "./App.css";
 
 class App extends Component {
@@ -44,13 +45,14 @@ class App extends Component {
         <BrowserRouter>
           <Navbar toggleClickHandler={this.toggleClickHandler}></Navbar>
           <SideMenu show={this.state.sideMenuOpen}></SideMenu>
-          {backdrop}
+          {this.props.toggleBackdrop ? <Backdrop /> : null}
+          {this.props.toggleBackdrop ? <SearchBox /> : null}
           <Route path="/" exact component={Homepage}></Route>
           <Route path="/movie:id" exact component={MovieDetail}></Route>
           <Route
-            path="/search:searchTerm"
+            path="/search=:searchTerm"
             exact
-            component={SearchMovie}
+            component={SearchResult}
           ></Route>
           <Route
             path="/showtime/movie:id"
@@ -66,14 +68,17 @@ class App extends Component {
             exact
             component={TheaterShowtime}
           ></Route>
-          <Footer
-          // className={`${this.props.footerbottom ? "bottom" : null}`}
-          // className="bottom"
-          ></Footer>
+          <Footer></Footer>
         </BrowserRouter>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    toggleBackdrop: state.toggleBackdrop,
+  };
+};
+
+export default connect(mapStateToProps)(App);

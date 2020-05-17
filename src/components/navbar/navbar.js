@@ -1,17 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
+import { toogleBackdrop } from "../../actions/index";
 import "./navbar.scss";
 // import ToggleButton from "../toggle-button/toggle-button";
-import Backdrop from "../backdrop/backdrop";
-import SearchBox from "../searchBox/searchBox";
+// import Backdrop from "../backdrop/backdrop";
+// import SearchBox from "../searchBox/searchBox";
 import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 
 class Navbar extends React.Component {
-  state = { backdrop: false };
+  // state = { backdrop: false };
 
-  backdropToggle = (prevState) => {
-    this.setState({ backdrop: !prevState });
-  };
+  // backdropToggle = (prevState) => {
+  //   this.setState({ backdrop: !prevState });
+  // };
 
   render() {
     return (
@@ -43,7 +45,7 @@ class Navbar extends React.Component {
                   SIGNIN
                 </Link>
               </li> */}
-              <li onClick={() => this.backdropToggle()}>
+              <li onClick={() => this.props.toogleBackdrop()}>
                 <div className="search-logo">
                   <i className="fas fa-search fa-2x"></i>
                 </div>
@@ -51,16 +53,18 @@ class Navbar extends React.Component {
             </ul>
           </div>
         </nav>
-        {this.state.backdrop ? <Backdrop click={this.backdropToggle} /> : null}
-        {this.state.backdrop ? <SearchBox click={this.backdropToggle} /> : null}
       </header>
     );
   }
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    backdrop: state.toggleBackdrop,
+  };
+};
 
-// https://materializecss.com/navbar.html
+export default connect(mapStateToProps, { toogleBackdrop })(Navbar);
 
 // const Navbar = () => {
 //   return (

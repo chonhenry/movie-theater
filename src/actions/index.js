@@ -104,6 +104,12 @@ export const changeSearchterm = (searchTerm) => {
   };
 };
 
+export const toogleBackdrop = () => {
+  return {
+    type: "TOGGLE_BACKDROP",
+  };
+};
+
 export const selectMovie = (movie) => {
   return {
     type: "MOVIE_SELECTED",

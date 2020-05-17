@@ -12,6 +12,7 @@ import dateReducer from "./dateReducer";
 import timeReducer from "./timeReducer";
 import searchMovieReducer from "./searchMovieReducer";
 import searchTermReducer from "./searchTermReducer";
+import toggleBackdropReducer from "./toggleBackdropReducer";
 
 export default combineReducers({
   nowPlaying: nowPLayingReducer,
@@ -27,4 +28,5 @@ export default combineReducers({
   time: timeReducer,
   searchMovie: searchMovieReducer,
   searchTerm: searchTermReducer,
+  toggleBackdrop: toggleBackdropReducer,
 });

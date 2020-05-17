@@ -1,8 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
+import { toogleBackdrop } from "../../actions/index";
 import "./backdrop.scss";
 
-const Backdrop = (props) => {
-  return <div className="backdrop" onClick={props.click} />;
+class Backdrop extends React.Component {
+  render() {
+    return <div className="backdrop" onClick={this.props.toogleBackdrop} />;
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    backdrop: state.toggleBackdrop,
+  };
 };
 
-export default Backdrop;
+export default connect(mapStateToProps, { toogleBackdrop })(Backdrop);

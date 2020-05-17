@@ -29,3 +29,14 @@
     }
   }
 }
+
+@media (max-width: 570px) {
+  .searchBox {
+    width: 300px;
+    padding-right: 5px;
+
+    .fas {
+      margin-left: 5px;
+    }
+  }
+}
