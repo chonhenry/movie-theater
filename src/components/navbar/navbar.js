@@ -2,6 +2,7 @@ import React from "react";
 import "./navbar.scss";
 // import ToggleButton from "../toggle-button/toggle-button";
 import Backdrop from "../backdrop/backdrop";
+import SearchBox from "../searchBox/searchBox";
 import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 
@@ -51,6 +52,7 @@ class Navbar extends React.Component {
           </div>
         </nav>
         {this.state.backdrop ? <Backdrop click={this.backdropToggle} /> : null}
+        {this.state.backdrop ? <SearchBox /> : null}
       </header>
     );
   }
