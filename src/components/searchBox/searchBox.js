@@ -14,7 +14,6 @@ class SearchBox extends React.Component {
   };
 
   onClickSearch = () => {
-    console.log(1234);
     this.props.searchMovie(this.props.searchTerm);
   };
 

@@ -1,0 +1,129 @@
+.search-results {
+  display: flex;
+  justify-content: center;
+  font-family: "Source Sans Pro", sans-serif;
+
+  .search-results-container {
+    // border: red 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 100px;
+
+    .section-title {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 700;
+      margin: 15px 0;
+    }
+
+    .result-list {
+      //   border: black 1px solid;
+
+      .result-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        .poster-link {
+          //   border: blue 1px solid;
+          width: 150px;
+          //   margin-left: 20px;
+          color: gray;
+          text-decoration: none;
+
+          img {
+            width: 100%;
+          }
+
+          .no-image {
+            width: 100%;
+            min-height: 234px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: lightgray;
+          }
+        }
+
+        .item-info {
+          //   border: green 1px solid;
+          width: 770px;
+          //   margin-right: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 5px;
+
+          .movie-title {
+            font-size: 35px;
+            font-weight: 700;
+            color: black;
+            text-decoration: none;
+          }
+
+          .release-date {
+            color: gray;
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .search-results {
+    .search-results-container {
+      //   border: red 1px solid;
+
+      .result-list {
+        // border: black 1px solid;
+
+        .result-item {
+          flex-direction: column-reverse;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 50px;
+
+          .poster-link {
+            // border: blue 1px solid;
+            width: 200px;
+
+            img {
+              width: 100%;
+            }
+
+            .no-image {
+              width: 100%;
+              min-height: 234px;
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+
+          .item-info {
+            // border: green 1px solid;
+            width: 100%;
+            text-align: center;
+
+            .release-date {
+              margin-bottom: 0;
+            }
+
+            .overview {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
