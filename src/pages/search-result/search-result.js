@@ -11,9 +11,8 @@ class SearchResult extends React.Component {
 
   renderSearchResult = (result) => {
     if (result) {
-      console.log(result.poster_path);
       return (
-        <div className="result-item">
+        <div className="result-item" key={result.id}>
           <Link className="poster-link" to={`/movie:${result.id}`}>
             {result.poster_path ? (
               <img

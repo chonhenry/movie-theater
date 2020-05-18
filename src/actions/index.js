@@ -33,6 +33,18 @@ export const fetchMovieNews = (api_key) => {
   };
 };
 
+// new york times api for movie news
+export const fetchNytMovieNews = () => {
+  return async (dispatch) => {
+    let fetch_news = await fetch(
+      `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=movie&sort=relevance&api-key=DKNNiw9bmEwnqFnz4VZI5V78PN1ZMBee`
+    );
+    fetch_news = await fetch_news.json();
+    fetch_news = await fetch_news.response.docs;
+    dispatch({ type: "Fetch_NYT_News", payload: fetch_news });
+  };
+};
+
 // fetch single movie
 export const fetchMovieDetail = (movie_id) => {
   return async (dispatch) => {

@@ -4,8 +4,10 @@ import {
   searchMovie,
   toogleBackdrop,
 } from "../../actions/index";
+import SearchResult from "../../pages/search-result/search-result";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "./searchBox.scss";
 
 class SearchBox extends React.Component {
@@ -15,6 +17,10 @@ class SearchBox extends React.Component {
 
   onClickSearch = () => {
     this.props.searchMovie(this.props.searchTerm);
+  };
+
+  handleKeyPress = () => {
+    return <Redirect to={`/search=123`} />;
   };
 
   render() {
@@ -33,6 +39,12 @@ class SearchBox extends React.Component {
           type="text"
           placeholder="Search Movie"
           onChange={(e) => this.onChangeSearchterm(e)}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              this.props.toogleBackdrop();
+              this.props.searchMovie(this.props.searchTerm);
+            }
+          }}
         ></input>
       </div>
     );
